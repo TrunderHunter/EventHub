@@ -1,0 +1,17 @@
+export const appColors = {
+    primary: '#5669FF',
+    text: "#120D26",
+    gray1: "#807A7A",
+    gray2: "#E4DFDF",
+    accent: '#c717fc',
+    white: '#fff',
+    black: '#000',
+    grey: '#ccc',
+    lightGrey: '#f5f5f5',
+    darkGrey: '#888',
+    error: '#ff0000',
+    success: '#00ff00',
+    warning: '#ffcc00',
+    info: '#0000ff',
+    transparent: 'transparent',
+    };
