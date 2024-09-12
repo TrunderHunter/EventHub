@@ -1,24 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { SplashScreen } from './src/screens';
-import AuthNavigator from './src/navigators/AuthNavigator';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from "@react-navigation/native";
+import { useState } from "react";
+import { StatusBar } from "react-native";
+import AuthNavigator from "./src/navigators/AuthNavigator";
+import { SplashScreen } from "./src/screens";
 
 export default function App() {
-
   const [isShowSplash, setIsShowSplash] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsShowSplash(false);
-    }
-    , 1500);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsShowSplash(false);
+  //   }
+  //   , 1500);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  return isShowSplash ? <SplashScreen /> : 
-    <NavigationContainer>
-      <AuthNavigator />
-    </NavigationContainer>
+  return (
+    <>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="transparent"
+        translucent={true}
+      />
+      {isShowSplash ? (
+        <SplashScreen />
+      ) : (
+        <NavigationContainer>
+          <AuthNavigator />
+        </NavigationContainer>
+      )}
+    </>
+  );
 }
