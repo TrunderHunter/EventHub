@@ -63,7 +63,12 @@ const OnbroadingScreen = ({ navigation }: any) => {
         }}
       >
         <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-          <TextComponent text="Skip" color={appColors.white} size={14} />
+          <TextComponent
+            text="Skip"
+            color={appColors.white}
+            size={14}
+            style={{ opacity: 0.5 }}
+          />
         </TouchableOpacity>
 
         <TouchableOpacity

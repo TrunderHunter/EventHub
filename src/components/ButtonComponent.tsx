@@ -8,6 +8,9 @@ import {
 } from "react-native";
 import React, { ReactNode } from "react";
 import TextComponent from "./TextComponent";
+import { globalStyles } from "../styles/globalStyles";
+import { appColors } from "../constants/appColors";
+import { fontFamilies } from "../constants/fontFamilies";
 
 interface ButtonComponentProps {
   icon?: ReactNode;
@@ -33,24 +36,40 @@ const ButtonComponent = (props: ButtonComponentProps) => {
     textStyle,
     onPress,
   } = props;
-  return (
+  return type === "primary" ? (
     <TouchableOpacity
       style={[
+        globalStyles.button,
         {
-          backgroundColor: type === "primary" ? color : "transparent",
-          padding: 10,
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          borderRadius: 6,
+          backgroundColor: color ?? appColors.primary,
         },
         style,
       ]}
       onPress={onPress}
     >
       {icon && iconFlex === "left" && icon}
-      <TextComponent text={text} color={textColor} style={textStyle} />
+      <TextComponent
+        text={text}
+        color={textColor ?? appColors.white}
+        style={[
+          textStyle,
+          {
+            marginLeft: icon && iconFlex === "left" ? 5 : 0,
+            marginRight: icon && iconFlex === "right" ? 5 : 0,
+          },
+        ]}
+        font={fontFamilies.AirbnbCereal_W_Md}
+        flex={icon && iconFlex === "right" ? 1 : 0}
+      />
       {icon && iconFlex === "right" && icon}
+    </TouchableOpacity>
+  ) : (
+    <TouchableOpacity onPress={onPress}>
+      <TextComponent
+        text={text}
+        color={type === "link" ? appColors.primary : appColors.text}
+        style={textStyle}
+      />
     </TouchableOpacity>
   );
 };

@@ -23,10 +23,13 @@ const TextComponent = (prop: TextComponentProps) => {
         globalStyles.text,
         {
           color: color ?? appColors.text,
-          fontSize: size ?? title ? 24 : 14,
+          fontSize: title ? 24 : size ?? 14,
           flex: flex || 0,
-          fontFamily: font ?? title ? fontFamilies.bold : fontFamilies.regular,
+          fontFamily: title
+            ? fontFamilies.AirbnbCereal_W_Blk
+            : fontFamilies.AirbnbCereal_W_Md,
         },
+        style,
       ]}
     >
       {text}

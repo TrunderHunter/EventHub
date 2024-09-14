@@ -35,4 +35,14 @@ export const globalStyles = StyleSheet.create({
     marginTop: 6,
     textAlign: "center",
   },
+  button: {
+    borderRadius: 12,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: appColors.primary,
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+    minHeight: 56,
+    flexDirection: "row",
+  },
 });
