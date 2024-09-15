@@ -26,8 +26,8 @@ const TextComponent = (prop: TextComponentProps) => {
           fontSize: title ? 24 : size ?? 14,
           flex: flex || 0,
           fontFamily: title
-            ? fontFamilies.AirbnbCereal_W_Blk
-            : fontFamilies.AirbnbCereal_W_Md,
+            ? fontFamilies.AirbnbCereal_W_Md
+            : fontFamilies.AirbnbCereal_W_Bk,
         },
         style,
       ]}

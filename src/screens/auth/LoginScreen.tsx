@@ -1,41 +1,90 @@
-import { View, Text, Button } from "react-native";
+import { Lock, Sms } from "iconsax-react-native";
 import React, { useState } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import ButtonComponent from "../../components/ButtonComponent";
-import { globalStyles } from "../../styles/globalStyles";
-import { InputComponent } from "../../components";
-import { Lock, LockSlash, Sms } from "iconsax-react-native";
+import { Image, Switch } from "react-native";
+import {
+  ButtonComponent,
+  ContainerComponent,
+  InputComponent,
+  RowComponent,
+  SectionComponent,
+  SpaceComponent,
+  TextComponent,
+} from "../../components";
 import { appColors } from "../../constants/appColors";
+import SocialLogin from "./components/SocialLogin";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isRemember, setIsRemember] = useState(true);
+
   return (
-    <View
-      style={[
-        globalStyles.container,
-        {
-          padding: 16,
-        },
-      ]}
-    >
-      <Text>LoginScreen</Text>
-      <InputComponent
-        value={email}
-        placeholder="Email"
-        allowClear
-        type="email-address"
-        affix={<Sms size={22} color={appColors.gray} />}
-        onChanget={(text) => setEmail(text)}
-      />
-      <InputComponent
-        value={password}
-        placeholder="Password"
-        isPassword
-        affix={<Lock size={22} color={appColors.gray} />}
-        onChanget={(text) => setPassword(text)}
-      />
-    </View>
+    <ContainerComponent isImageBackground>
+      <SectionComponent
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: 125,
+          marginBottom: 50,
+        }}
+      >
+        <Image
+          source={require("../../assets/images/logo-text.png")}
+          style={{
+            width: 162,
+            height: 114,
+          }}
+        />
+      </SectionComponent>
+      <SectionComponent>
+        <TextComponent
+          text="Sign In"
+          title
+          style={{
+            marginBottom: 21,
+          }}
+        />
+        <InputComponent
+          value={email}
+          placeholder="Email"
+          allowClear
+          type="email-address"
+          affix={<Sms size={22} color={appColors.gray} />}
+          onChanget={(text) => setEmail(text)}
+        />
+        <InputComponent
+          value={password}
+          placeholder="Password"
+          isPassword
+          affix={<Lock size={22} color={appColors.gray} />}
+          onChanget={(text) => setPassword(text)}
+        />
+        <RowComponent>
+          <RowComponent onPress={() => setIsRemember(!isRemember)}>
+            <Switch
+              value={isRemember}
+              onValueChange={(value) => setIsRemember(value)}
+              trackColor={{ false: appColors.gray3, true: appColors.primary }}
+              thumbColor={appColors.white}
+            />
+            <TextComponent text="Remember me" />
+          </RowComponent>
+          <ButtonComponent text="Forgot Password?" />
+        </RowComponent>
+      </SectionComponent>
+      <SpaceComponent height={16} />
+      <SectionComponent>
+        <ButtonComponent text="SIGN IN" type="primary" />
+      </SectionComponent>
+      <SocialLogin />
+      <SectionComponent>
+        <RowComponent justifyContent="center">
+          <TextComponent text="Don't have an account? " />
+          <ButtonComponent text="Sign Up" type="link" />
+        </RowComponent>
+      </SectionComponent>
+    </ContainerComponent>
   );
 };
 

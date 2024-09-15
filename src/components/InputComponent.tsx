@@ -28,7 +28,7 @@ const InputComponent = (props: InputComponentProps) => {
     allowClear,
     type,
   } = props;
-  const [isShowPassword, setIsShowPassword] = useState(isPassword ?? false);
+  const [isShowPassword, setIsShowPassword] = useState(false);
 
   return (
     <View

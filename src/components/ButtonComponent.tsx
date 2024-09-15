@@ -36,6 +36,7 @@ const ButtonComponent = (props: ButtonComponentProps) => {
     textStyle,
     onPress,
   } = props;
+
   return type === "primary" ? (
     <TouchableOpacity
       style={[
@@ -56,10 +57,11 @@ const ButtonComponent = (props: ButtonComponentProps) => {
           {
             marginLeft: icon && iconFlex === "left" ? 5 : 0,
             marginRight: icon && iconFlex === "right" ? 5 : 0,
+            fontFamily: fontFamilies.AirbnbCereal_W_Md,
           },
         ]}
-        font={fontFamilies.AirbnbCereal_W_Md}
         flex={icon && iconFlex === "right" ? 1 : 0}
+        size={16}
       />
       {icon && iconFlex === "right" && icon}
     </TouchableOpacity>

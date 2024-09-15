@@ -8,7 +8,7 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: appColors.white,
   },
   text: {
-    fontFamily: fontFamilies.regular,
+    fontFamily: fontFamilies.AirbnbCereal_W_Md,
     fontSize: 14,
     color: appColors.text,
   },
@@ -44,5 +44,14 @@ export const globalStyles = StyleSheet.create({
     paddingVertical: 16,
     minHeight: 56,
     flexDirection: "row",
+  },
+  section: {
+    paddingHorizontal: 16,
+    paddingBottom: 20,
+  },
+  row: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });
