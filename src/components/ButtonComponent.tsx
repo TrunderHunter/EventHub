@@ -38,33 +38,44 @@ const ButtonComponent = (props: ButtonComponentProps) => {
   } = props;
 
   return type === "primary" ? (
-    <TouchableOpacity
-      style={[
-        globalStyles.button,
-        {
-          backgroundColor: color ?? appColors.primary,
-        },
-        style,
-      ]}
-      onPress={onPress}
+    <View
+      style={{
+        alignItems: "center",
+        width: "100%",
+      }}
     >
-      {icon && iconFlex === "left" && icon}
-      <TextComponent
-        text={text}
-        color={textColor ?? appColors.white}
+      <TouchableOpacity
         style={[
-          textStyle,
+          globalStyles.button,
+          globalStyles.shadow,
           {
-            marginLeft: icon && iconFlex === "left" ? 5 : 0,
-            marginRight: icon && iconFlex === "right" ? 5 : 0,
-            fontFamily: fontFamilies.AirbnbCereal_W_Md,
+            backgroundColor: color ?? appColors.primary,
+            marginBottom: 10,
+            width: "80%",
           },
+          style,
         ]}
-        flex={icon && iconFlex === "right" ? 1 : 0}
-        size={16}
-      />
-      {icon && iconFlex === "right" && icon}
-    </TouchableOpacity>
+        onPress={onPress}
+      >
+        {icon && iconFlex === "left" && icon}
+        <TextComponent
+          text={text}
+          color={textColor ?? appColors.white}
+          style={[
+            textStyle,
+            {
+              marginLeft: icon && iconFlex === "left" ? 5 : 0,
+              marginRight: icon && iconFlex === "right" ? 5 : 0,
+              fontFamily: fontFamilies.AirbnbCereal_W_Md,
+              textAlign: "center",
+            },
+          ]}
+          flex={icon && iconFlex === "right" ? 1 : 0}
+          size={16}
+        />
+        {icon && iconFlex === "right" && icon}
+      </TouchableOpacity>
+    </View>
   ) : (
     <TouchableOpacity onPress={onPress}>
       <TextComponent

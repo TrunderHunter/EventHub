@@ -25,6 +25,11 @@ export default function App() {
     });
   };
 
+  const loadFonts = async () => {
+    await fetchFonts();
+    setIsShowSplash(false);
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsShowSplash(false);
@@ -33,10 +38,6 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const loadFonts = async () => {
-      await fetchFonts();
-      setIsShowSplash(false);
-    };
     loadFonts();
   }, []);
 

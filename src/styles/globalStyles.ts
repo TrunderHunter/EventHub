@@ -17,6 +17,16 @@ export const globalStyles = StyleSheet.create({
     fontWeight: "bold",
     color: "#333",
   },
+  shadow: {
+    shadowColor: "rgba(0, 0, 0, 0.5)",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
   paragraph: {
     marginVertical: 8,
     lineHeight: 20,

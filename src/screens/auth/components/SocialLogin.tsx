@@ -3,13 +3,18 @@ import React from "react";
 import {
   ButtonComponent,
   SectionComponent,
+  SpaceComponent,
   TextComponent,
 } from "../../../components";
-import { Facebook } from "iconsax-react-native";
+import { FacebookIcon, GoogleIcon } from "../../../assets/svgs";
 
 const SocialLogin = () => {
   return (
-    <SectionComponent>
+    <SectionComponent
+      style={{
+        alignItems: "center",
+      }}
+    >
       <TextComponent
         text="OR"
         color="gray"
@@ -18,17 +23,24 @@ const SocialLogin = () => {
           textAlign: "center",
         }}
       />
+      <SpaceComponent height={16} />
       <ButtonComponent
         type="primary"
         text="Login with Facebook"
         color="#fff"
         textColor="#1877f2"
-        icon={<Facebook size={20} color="black" />}
+        onPress={() => {}}
+        icon={<FacebookIcon />}
+        iconFlex="left"
+      />
+      <ButtonComponent
+        type="primary"
+        text="Login with Google"
+        color="#fff"
+        textColor="#db4437"
+        icon={<GoogleIcon />}
         onPress={() => {}}
         iconFlex="left"
-        style={{
-          marginBottom: 10,
-        }}
       />
     </SectionComponent>
   );
